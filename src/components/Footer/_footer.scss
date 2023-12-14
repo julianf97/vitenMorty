@@ -1,6 +1,51 @@
+// Mobile
+@media only screen and (max-width:600px){
+
+    .contenedorFooter{
+        width: 100%;
+        height: 5vh;
+        align-items: center;   
+        background-color: #333;
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        padding: 1.5rem 0;
+        text-align: center;
+        
+        h6{
+            font-size: 1.1rem;
+            color: #fff;
+            font-family: Ubuntu,sans-serif!important;
+            font-weight: 550 !important;
+            user-select: none;
+            cursor: pointer;
+        }
+        h6:hover{
+            color: #BFDE42;
+        }
+        .contenedorIconoGithub{
+            width: 30px;
+            height: 30px;
+            margin-left: -2px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+        
+        }
+        .contenedorIconoGithub:hover{
+            background-color: #000000 !important;
+            cursor: pointer;
+        }
+    }
+
+}
+
+
+
 .contenedorFooter{
     width: 100%;
-    height: 5vh;
+    height: 13vh;
     align-items: center;   
     background-color: #333;
     display: flex;

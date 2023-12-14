@@ -1,7 +1,10 @@
 *{
   margin: 0;
   padding: 0;
+
 }
+
+
 
 button {
   background: none;
@@ -16,4 +19,18 @@ button {
    -webkit-appearance: button; /* for input */
      -moz-user-select: none;
       -ms-user-select: none;
+}
+
+body::-webkit-scrollbar {
+  width: 12px;          
+}
+
+body::-webkit-scrollbar-track {
+  background: #636363;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #C0DE42;   
+  border-radius: 20px;      
+  border: 1px solid #636363;
 }

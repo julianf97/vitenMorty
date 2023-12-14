@@ -1,11 +1,18 @@
-import { React } from 'react';
+import Hamburger from 'hamburger-react'
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import "./_navbar.scss"
+import MobileNav from './MobileNav';
 
 const Navbar = () => {
+
+    const [isOpen, setOpen] = useState(false)
     
     return(
         <div className='contenedorNavbar'>
+            {isOpen && (
+                <MobileNav/>
+            )}
             <div className='contenedorInternoNavbar'>
                 <div className='contenedorLogo unbutu'>
                     <div className='contenedorTextoLogo'>
@@ -17,7 +24,10 @@ const Navbar = () => {
                         </Link>
                     </div>
                 </div>
-                <div className='contenedorNav'>
+                <div className='hamburger-menu'>
+                    <Hamburger toggled={isOpen} toggle={setOpen} />
+                </div>
+                <nav className='contenedorNavDesktop'>
                     <div className='contenedorLista'>
                         <ul className='listaDesordenada'>
                             <Link to={'/characters'} className='enlace'>
@@ -31,10 +41,7 @@ const Navbar = () => {
                             </Link>
                         </ul>
                     </div>
-                </div>
-                <div className='contenedorDarkLight'>
-                        
-                </div>
+                </nav>
             </div>
         </div>
     )

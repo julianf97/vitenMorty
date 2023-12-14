@@ -1,116 +1,403 @@
-.contenedorPrincipalCharacters{
-    width: 100%;
-    height: auto;
-    background-color: #333;
-    .contenedorSearch{
-        width: 100%;
-        height: 220px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        .contenedorInternoSearch{
-            width: 640px;
-            height: 100%;
-            display: flex;
-            justify-content: end;
-            flex-direction: column;
-            align-items: center;
-            .contenedorTitulo{
-                width: 50%;
-                height: auto;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                h2{
-                    color: #fff;
-                    font-size: 2.5rem;
-                    font-weight: 500;
-                }
-            }
-            .contenedorInput{
-                width: 100%;
-                height: 80px;
-                display: flex;
-                align-items: center;
-                input{
-                    background-color: #333;
-                    border: 2px solid #bfde42;
-                    border-radius: 8px 0 0 8px;
-                    border-right: none;
-                    color: #fff;
-                    padding: 10px 15px;
-                    transition: all .2s;
-                    width: 85%;
-                    height: 60%;
-                    font-size: 1.2em;
-
-                }
-                input:focus{
-                    outline: none;
-                }
-                .submitSearch{
-                    width: 80px;
-                    height: 48px;
-                    border: 2px solid #bfde42;
-                    border-radius: 0px 8px 8px 0px;
-                    background-color: #bfde42;
-                    color: #fff;
-                    font-size: 1.2rem;
-                    font-weight: 500;
-                    cursor: pointer;
-                    user-select: none;
-                }
-            }
-        }
-    }
-    .contenedorDosSecciones{
+// Mobile
+@media only screen and (max-width:600px){
+    .contenedorPrincipalCharacters{
         width: 100%;
         height: auto;
-        display: flex;
-        .contenedorFilter{
-            width: 450px;
-            height: 100%;
+        background-color: #333;
+        .contenedorSearch{
+            width: 100%;
+            height: 220px;
             display: flex;
-            justify-content: start;
-            margin-left: -20px;
-            .internoFilter{
-                width: 100%;
-                height: 40%;
-                margin-top: 20px;
-                .tituloFilter{
+            justify-content: center;
+            align-items: center;
+            .contenedorInternoSearch{
+                width: 640px;
+                height: 100%;
+                display: flex;
+                justify-content: end;
+                flex-direction: column;
+                align-items: center;
+                .contenedorTitulo{
+                    width: 50%;
+                    height: auto;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    margin-top: 200px;
+                    h2{
+                        color: #fff;
+                        font-size: 1.8rem;
+                        font-weight: 500;
+                        padding-bottom: 10px;
+                    }
+                }
+                .contenedorInput{
                     width: 100%;
-                    height: 30%;
+                    height: 80px;
                     display: flex;
                     align-items: center;
-                    flex-direction: column;
-                    justify-content: space-between;
-                    h5{
-                        font-size: 1.5rem;
+                    input{
+                        background-color: #333;
+                        border: 2px solid #bfde42;
+                        border-radius: 8px 0 0 8px;
+                        border-right: none;
                         color: #fff;
-                        margin-left: 120px;
+                        padding: 10px 15px;
+                        transition: all .2s;
+                        width: 85%;
+                        height: 95%;
+                        font-size: 1.2em;
+                        margin-left: 10px
                     }
-                    span{
+                    input:focus{
+                        outline: none;
+                    }
+                    .submitSearch{
+                        width: 80px;
+                        height: 48px;
+                        border: 2px solid #bfde42;
+                        border-radius: 0px 8px 8px 0px;
+                        background-color: #bfde42;
                         color: #fff;
-                        margin-left: 120px;
-                        margin-bottom: 5px;
-                        color: #a3c322;;
-                        text-decoration: underline #a3c322;;       /* Subrayado rojo */
-                        user-select: none;
+                        font-size: 1.2rem;
+                        font-weight: 500;
                         cursor: pointer;
-                        margin-top: 10px;
+                        user-select: none;
+                        margin-right: 10px;
                     }
                 }
             }
         }
-        .contenedorPersonajes{
-            height: 100%;
-            width: 890px;
-            .contenedorInternoPersonajes{
-                width: 90%;
-                height: 100%;
+        .contenedorDosSecciones{
+            width: 100%;
+            height: auto;
+            display: flex;
+            .contenedorFilter{
+                width: 450px;
+                height: 500px;
                 display: flex;
-                flex-wrap: wrap;
+                justify-content: start;
+                align-items: center;
+                justify-content: center;
+                .internoFilter{
+                    width: 70%;
+                    height: 90%;
+                    padding-top: 10px;
+                    .tituloFilter{
+                        width: 100%;
+                        height: 20%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: start;
+                        flex-direction: column;
+                        h5{
+                            font-size: 1.5rem;
+                            color: #fff;
+                        }
+                        span{
+                            color: #fff;
+                            color: #a3c322;;
+                            text-decoration: underline #a3c322;
+                            margin-top: 10px;
+                            user-select: none;
+                            cursor: pointer;
+                        }
+                    }
+                    .contenedorAcordeon{
+                        width: 100%;
+                        height: auto;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        .acordeon{
+                            background-color: rgba(255, 0, 0, 0);
+                            border: solid 1px #fff;
+                            border-radius: 3%;
+                            width: 100%;
+                            .acordeonItem{
+                                border-bottom: solid 1px #fff;
+                            }
+                        }
+                    }
+                }
+            }
+            .contenedorPersonajes{
+                height: 100%;
+                width: 890px;
+                display: none;
+                .contenedorInternoPersonajes{
+                    width: 90%;
+                    height: 100%;
+                    display: flex;
+                    flex-wrap: wrap;
+                }
             }
         }
     }
+    
 }
+
+// Ipad
+@media only screen and (min-width:601px) and (max-width:1025px){
+    .contenedorPrincipalCharacters{
+        width: 100%;
+        height: auto;
+        background-color: #333;
+        .contenedorSearch{
+            width: 100%;
+            height: 220px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            .contenedorInternoSearch{
+                width: 640px;
+                height: 100%;
+                display: flex;
+                justify-content: end;
+                flex-direction: column;
+                align-items: center;
+                .contenedorTitulo{
+                    width: 50%;
+                    height: auto;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    h2{
+                        color: #fff;
+                        font-size: 2.5rem;
+                        font-weight: 500;
+                    }
+                }
+                .contenedorInput{
+                    width: 100%;
+                    height: 80px;
+                    display: flex;
+                    align-items: center;
+                    input{
+                        background-color: #333;
+                        border: 2px solid #bfde42;
+                        border-radius: 8px 0 0 8px;
+                        border-right: none;
+                        color: #fff;
+                        padding: 10px 15px;
+                        transition: all .2s;
+                        width: 85%;
+                        height: 60%;
+                        font-size: 1.2em;
+    
+                    }
+                    input:focus{
+                        outline: none;
+                    }
+                    .submitSearch{
+                        width: 80px;
+                        height: 48px;
+                        border: 2px solid #bfde42;
+                        border-radius: 0px 8px 8px 0px;
+                        background-color: #bfde42;
+                        color: #fff;
+                        font-size: 1.2rem;
+                        font-weight: 500;
+                        cursor: pointer;
+                        user-select: none;
+                    }
+                }
+            }
+        }
+        .contenedorDosSecciones{
+            width: 100%;
+            height: auto;
+            display: flex;
+            .contenedorFilter{
+                width: 450px;
+                height: 500px;
+                display: flex;
+                justify-content: start;
+                align-items: center;
+                justify-content: end;
+                .internoFilter{
+                    width: 70%;
+                    height: 90%;
+                    padding-top: 10px;
+                    .tituloFilter{
+                        width: 100%;
+                        height: 20%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: start;
+                        flex-direction: column;
+                        h5{
+                            font-size: 1.5rem;
+                            color: #fff;
+                        }
+                        span{
+                            color: #fff;
+                            color: #a3c322;;
+                            text-decoration: underline #a3c322;
+                            margin-top: 10px;
+                            user-select: none;
+                            cursor: pointer;
+                        }
+                    }
+                    .contenedorAcordeon{
+                        width: 100%;
+                        height: auto;
+                        .acordeon{
+                            background-color: rgba(255, 0, 0, 0);
+                            border: solid 1px #fff;
+                            border-radius: 3%;
+                            text-emphasis-color: #fff;
+                            .acordeonItem{
+                                border-bottom: solid 1px #fff;
+                            }
+                        }
+                    }
+                }
+            }
+            .contenedorPersonajes{
+                height: 100%;
+                width: 890px;
+                .contenedorInternoPersonajes{
+                    width: 90%;
+                    height: 100%;
+                    display: flex;
+                    flex-wrap: wrap;
+                }
+            }
+        }
+    }
+    
+}
+
+// Desktop
+@media only screen and (min-width:1026px){
+    .contenedorPrincipalCharacters{
+        width: 100%;
+        height: auto;
+        background-color: #333;
+        .contenedorSearch{
+            width: 100%;
+            height: 220px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            .contenedorInternoSearch{
+                width: 640px;
+                height: 100%;
+                display: flex;
+                justify-content: end;
+                flex-direction: column;
+                align-items: center;
+                .contenedorTitulo{
+                    width: 50%;
+                    height: auto;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    h2{
+                        color: #fff;
+                        font-size: 2.5rem;
+                        font-weight: 500;
+                    }
+                }
+                .contenedorInput{
+                    width: 100%;
+                    height: 80px;
+                    display: flex;
+                    align-items: center;
+                    input{
+                        background-color: #333;
+                        border: 2px solid #bfde42;
+                        border-radius: 8px 0 0 8px;
+                        border-right: none;
+                        color: #fff;
+                        padding: 10px 15px;
+                        transition: all .2s;
+                        width: 85%;
+                        height: 60%;
+                        font-size: 1.2em;
+    
+                    }
+                    input:focus{
+                        outline: none;
+                    }
+                    .submitSearch{
+                        width: 80px;
+                        height: 48px;
+                        border: 2px solid #bfde42;
+                        border-radius: 0px 8px 8px 0px;
+                        background-color: #bfde42;
+                        color: #fff;
+                        font-size: 1.2rem;
+                        font-weight: 500;
+                        cursor: pointer;
+                        user-select: none;
+                    }
+                }
+            }
+        }
+        .contenedorDosSecciones{
+            width: 100%;
+            height: auto;
+            display: flex;
+            .contenedorFilter{
+                width: 450px;
+                height: 500px;
+                display: flex;
+                justify-content: start;
+                align-items: center;
+                justify-content: end;
+                .internoFilter{
+                    width: 70%;
+                    height: 90%;
+                    padding-top: 10px;
+                    .tituloFilter{
+                        width: 100%;
+                        height: 20%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: start;
+                        flex-direction: column;
+                        h5{
+                            font-size: 1.5rem;
+                            color: #fff;
+                        }
+                        span{
+                            color: #fff;
+                            color: #a3c322;;
+                            text-decoration: underline #a3c322;
+                            margin-top: 10px;
+                            user-select: none;
+                            cursor: pointer;
+                        }
+                    }
+                    .contenedorAcordeon{
+                        width: 100%;
+                        height: auto;
+                        .acordeon{
+                            background-color: rgba(255, 0, 0, 0);
+                            border: solid 1px #fff;
+                            border-radius: 3%;
+                            text-emphasis-color: #fff;
+                            .acordeonItem{
+                                border-bottom: solid 1px #fff;
+                            }
+                        }
+                    }
+                }
+            }
+            .contenedorPersonajes{
+                height: 100%;
+                width: 890px;
+                .contenedorInternoPersonajes{
+                    width: 90%;
+                    height: 100%;
+                    display: flex;
+                    flex-wrap: wrap;
+                }
+            }
+        }
+    }
+    
+}
+

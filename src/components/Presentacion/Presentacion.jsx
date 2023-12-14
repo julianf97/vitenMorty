@@ -1,12 +1,12 @@
-import { React } from 'react';
 import "./_presentacion.scss"
+import imagenPresentacion from "../../img/homePresentation.png"
 
 const Presentacion = () => {
     
     return(
         <div className='contenedorPresentacion'>
             <div className='ImagenPresentacion'>
-                
+                <img src={imagenPresentacion} alt="imgPresentacion" />
             </div>
             <div className='contenedorBotonesPrincipales'>
                 <div className='contenedorAllCaracters'>

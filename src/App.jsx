@@ -1,17 +1,14 @@
 import AppRouter from './AppRouter/AppRouter';
+import {NextUIProvider} from "@nextui-org/react";
 import './App.css';
 
 
 function App() {
 
-  const arr = [];
-
-  console.log(arr.length)
-
   return (
-    <div>
+    <NextUIProvider>
       <AppRouter/>
-    </div>
+    </NextUIProvider>
   );
 }
 
