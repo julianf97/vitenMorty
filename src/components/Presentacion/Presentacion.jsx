@@ -1,4 +1,5 @@
 import "./_presentacion.scss"
+import { Link } from "react-router-dom"
 import imagenPresentacion from "../../img/homePresentation.png"
 
 const Presentacion = () => {
@@ -10,9 +11,11 @@ const Presentacion = () => {
             </div>
             <div className='contenedorBotonesPrincipales'>
                 <div className='contenedorAllCaracters'>
-                    <button className='btnAllCaracters'>
-                        All Characters
-                    </button>
+                    <Link to='/characters' className='btnAllCaracters'>
+                        <button >
+                            ALL CHARACTERS
+                        </button>
+                    </Link>
                 </div>
                 <div className='contenedorSegundoBtn'>
                     <button className='btnSegundo'>

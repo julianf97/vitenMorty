@@ -1,5 +1,8 @@
 // Mobile
 @media only screen and (max-width:600px){
+    body{
+        overflow-y: hidden !important;
+    }
     .contenedorPresentacion{
         width: 100%;
         height: 100vh !important;
@@ -12,6 +15,9 @@
         justify-content: center  !important;
         align-items: center;
         flex-direction: column;
+        padding-top: 50px;
+        padding-bottom: 20px;
+
         .ImagenPresentacion{
             width: 300px !important ;
             margin-top: 100px !important;
