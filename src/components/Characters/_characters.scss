@@ -72,20 +72,23 @@
             width: 100%;
             height: auto;
             display: flex;
+            flex-direction: column;
             .contenedorFilter{
-                width: 450px;
-                height: 500px;
+                width: 100%;
+                height: auto;
                 display: flex;
                 justify-content: start;
                 align-items: center;
                 justify-content: center;
+                padding-top: 20px;
                 .internoFilter{
-                    width: 70%;
+                    width: 95%;
                     height: 90%;
                     padding-top: 10px;
                     .tituloFilter{
                         width: 100%;
                         height: 20%;
+                        font-weight: 600;
                         display: flex;
                         align-items: center;
                         justify-content: start;
@@ -101,6 +104,7 @@
                             margin-top: 10px;
                             user-select: none;
                             cursor: pointer;
+                            padding-bottom: 20px;
                         }
                     }
                     .contenedorAcordeon{
@@ -123,13 +127,18 @@
             }
             .contenedorPersonajes{
                 height: 100%;
-                width: 890px;
-                display: none;
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
                 .contenedorInternoPersonajes{
-                    width: 90%;
+                    width: 90% ;
                     height: 100%;
                     display: flex;
                     flex-wrap: wrap;
+                    justify-content: center;
+                    align-items: center ;
+                    flex-direction: column;
                 }
             }
         }

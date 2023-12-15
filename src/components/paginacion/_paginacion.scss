@@ -1,0 +1,54 @@
+.contenedorPaginacion{
+    width: 100%;
+    height: 15vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 70px;
+    padding-bottom: 50px;
+    .contenedorCirculos{
+        width: 20%;
+        height: 100%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        .circuloNum{
+            width: 40px;
+            height: 40px;
+            border-radius: 100%;
+            border: solid 1px #a3c322;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #a3c322;
+            cursor: pointer;
+            user-select: none;
+        }
+        .circuloPrev{
+            width: 30px;
+            height: 30px;
+            border-radius: 100%;
+            border: solid 1px #a3c322;
+            background-color: #a3c322;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #000000b9;
+            cursor: pointer;
+            user-select: none;
+        }
+        .circuloNext{
+            width: 30px;
+            height: 30px;
+            border-radius: 100%;
+            border: solid 1px #a3c322;
+            background-color: #a3c322;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #000000b9;
+            cursor: pointer;
+            user-select: none;
+        }
+    }
+}

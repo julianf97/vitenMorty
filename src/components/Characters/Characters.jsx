@@ -1,13 +1,19 @@
+import { useState, useEffect } from 'react';
 import "./_characters.scss";
 import Filter from "../Filter/Filter";
 import CharacterCard from "../Cards/CaracterCard/CharacterCard";
 import { useFetch } from "../../hooks/useFetch";
+import Paginacion from "../paginacion/Paginacion";
 
 export default function Characters() {
-  const { informacion, loading, error } = useFetch();
+  const [currentPage, setCurrentPage] = useState(1);
+  const { informacion, loading, error } = useFetch(currentPage);
+
   const apiResults = informacion.results;
-  
-  console.log(apiResults)
+
+  const handlePageChange = (newPage) => {
+    setCurrentPage(newPage);
+  };
 
   return (
     <div className='contenedorPrincipalCharacters'>
@@ -42,6 +48,7 @@ export default function Characters() {
           </div>
         </div>
       </div>
+      <Paginacion currentPage={currentPage} onPageChange={handlePageChange} />
     </div>
   );
 }

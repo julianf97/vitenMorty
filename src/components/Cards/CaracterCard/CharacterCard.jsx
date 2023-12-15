@@ -31,12 +31,48 @@ export default function CharacterCard({
 
   return (
     <div className="characterCard">
-      <div className="imageCard" style={{ width: '100%', height: '225px', backgroundSize: 'cover', backgroundRepeat: 'no-repeat', backgroundImage: `url(${image})` }}>
+      <div
+        className="imageCard"
+        style={{
+          width: '100%',
+          height: '225px',
+          backgroundSize: 'cover',
+          backgroundRepeat: 'no-repeat',
+          overflow: 'hidden',
+          transition: 'all 0.5s ease',
+          backgroundImage: `url(${image})`
+        }}
+      >
         <div className="statusContainer">
+          {status === "Alive" ? (
+            <div className="status-alive">
+              <span>{status}</span>
+            </div>
+          ) : status === "Dead" ? (
+            <div className="status-dead">
+              <span>{status}</span>
+            </div>
+          ) : (
+            <div className="status-unknown">
+              <span>{status}</span>
+            </div>
+          )}
+        </div>
+      </div>
+      <div className="statusContainer-Hover">
+        {status === "Alive" ? (
           <div className="status-alive">
             <span>{status}</span>
           </div>
-        </div>
+        ) : status === "Dead" ? (
+          <div className="status-dead">
+            <span>{status}</span>
+          </div>
+        ) : (
+          <div className="status-unknown">
+            <span>{status}</span>
+          </div>
+        )}
       </div>
       <div className="infoCard">
         <div className="titleContainer">
@@ -49,6 +85,7 @@ export default function CharacterCard({
         <div className="lastKnowLocationContainer">
           <h6>Last Known Location: </h6>
           <h2>{location.name && location.name}</h2>
+          <div className="arrowContainer"></div>
         </div>
       </div>
     </div>
