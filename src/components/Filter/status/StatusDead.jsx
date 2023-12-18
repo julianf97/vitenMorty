@@ -1,8 +1,8 @@
 import "./status.scss"
 
-export default function StatusDead() {
+export default function StatusDead({ onClick }) {
   return (
-    <div className="statusAlive">
+    <div className="statusAlive" onClick={() => onClick()}>
         <div className="selectAlive">
             Dead
         </div>

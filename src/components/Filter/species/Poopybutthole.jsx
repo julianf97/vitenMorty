@@ -1,8 +1,8 @@
 import "./status.scss"
 
-export default function Poopybutthole() {
+export default function Poopybutthole({onClick}) {
   return (
-    <div className="statusAlive">
+    <div className="statusAlive" onClick={() => onClick()}>
         <div className="selectAlive">
             Poopybutthole
         </div>

@@ -1,10 +1,11 @@
 import "./status.scss"
 
-export default function Animal( { onClick } ) {
+
+export default function Humanoide({ onClick }) {
   return (
     <div className="statusAlive" onClick={() => onClick()}>
         <div className="selectAlive">
-            Animal
+            Humanoid
         </div>
     </div>
   )

@@ -1,9 +1,9 @@
 import "./status.scss"
 
 
-export default function Robot() {
+export default function Robot({ onClick }) {
   return (
-    <div className="statusAlive">
+    <div className="statusAlive" onClick={() => onClick()}>
         <div className="selectAlive">
             Robot
         </div>

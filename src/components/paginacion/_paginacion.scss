@@ -1,3 +1,15 @@
+
+// Mobile
+@media only screen and (max-width:600px){
+    .contenedorCirculos{
+        width: 40% !important;
+        height: 100%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+}
+
 .contenedorPaginacion{
     width: 100%;
     height: 15vh;

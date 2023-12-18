@@ -1,8 +1,8 @@
 import "./status.scss"
 
-export default function Female() {
+export default function Female({ onClick }) {
   return (
-    <div className="statusAlive">
+    <div className="statusAlive" onClick={() => onClick()}>
         <div className="selectAlive">
             Female
         </div>

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-const useRickAndMortyCharacters = (isStatusAliveFilterActive) => {
+const useRickAndMortyCharacters = () => {
   const [characters, setCharacters] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -15,15 +15,11 @@ const useRickAndMortyCharacters = (isStatusAliveFilterActive) => {
           const response = await fetch(nextPage);
 
           if (!response.ok) {
-            throw new Error("Network response was not ok");
+            throw new Error("La respuesta de la red no fue satisfactoria");
           }
 
           const data = await response.json();
-          const filteredCharacters = isStatusAliveFilterActive
-            ? data.results.filter((character) => character.status === "Alive")
-            : data.results;
-
-          allCharacters = allCharacters.concat(filteredCharacters);
+          allCharacters = allCharacters.concat(data.results);
 
           nextPage = data.info.next;
         } while (nextPage);
@@ -37,7 +33,7 @@ const useRickAndMortyCharacters = (isStatusAliveFilterActive) => {
     };
 
     fetchAllCharacters();
-  }, [isStatusAliveFilterActive]);
+  }, []);
 
   return { characters, loading, error };
 };

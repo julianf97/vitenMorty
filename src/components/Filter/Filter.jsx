@@ -1,4 +1,5 @@
 import { Accordion, AccordionItem } from "@nextui-org/react";
+import FilterFunctions from "./filterFunctions";
 import StatusAlive from "./status/StatusAlive";
 import StatusDead from "./status/StatusDead";
 import StatusUnknown from "./status/StatusUnknown";
@@ -15,47 +16,63 @@ import Female from "./gender/Female";
 import Male from "./gender/Male";
 import Genderless from "./gender/Genderless";
 import UnknownGender from "./gender/Unknown";
-import { useState } from "react";
-import { useRickAndMortyCharacters } from "../../hooks/useRickAndMortyCharacters";
+import { useContext } from "react";
+import { FilterContext } from "../../context/FilterContext";
+import Humanoide from "./species/Humanoide";
 
 export default function Filter() {
-  const [isStatusAliveFilterActive, setIsStatusAliveFilterActive] = useState(false);
-  const { characters } = useRickAndMortyCharacters(isStatusAliveFilterActive);
+  const { filterStatusAlive, 
+    filterStatusDead, 
+    filterStatusUnknown,
+    filterSpeciesHuman,
+    filterSpeciesAlien,
+    filterSpeciesPoopybutthole,
+    filterSpeciesMythological,
+    filterSpeciesRobot,
+    filterSpeciesAnimal,
+    filterSpeciesDisease,
+    filterSpeciesCronenberg,
+    filterSpeciesHumanoid,
+    filterSpeciesUnknown,
+    filterGenderFemale,
+    filterGenderMale,
+    filterGenderGenderless,
+    filterGenderUnknown
+  } = FilterFunctions();
 
-  const filterStatusAlive = () => {
-    setIsStatusAliveFilterActive(!isStatusAliveFilterActive);
-  };
+  const { clearFilters } = useContext(FilterContext)
 
   return (
     <div className='contenedorFilter'>
       <div className='internoFilter'>
         <div className='tituloFilter'>
           <h5>Filter</h5>
-          <span>Clear Filters</span>
+          <span onClick={clearFilters} >Clear Filters</span>
         </div>
         <div className="contenedorAcordeon">
           <Accordion variant="bordered" className="acordeon">
             <AccordionItem className="acordeonItem" key="1" aria-label="Accordion 1" title={<span style={{ color: 'white' }}>Status</span>}>
               <StatusAlive onClick={filterStatusAlive}/>
-              <StatusDead/>
-              <StatusUnknown/>
+              <StatusDead onClick={filterStatusDead}/>
+              <StatusUnknown onClick={filterStatusUnknown}/>
             </AccordionItem>
             <AccordionItem className="acordeonItem" key="2" aria-label="Accordion 2" title={<span style={{ color: 'white' }}>Species</span>}>
-              <Human/>
-              <Alien/>
-              <Poopybutthole/>
-              <Mythological/>
-              <Animal/>
-              <Disease/>
-              <Robot/>
-              <Cronenberg/>
-              <Unknown/>
+              <Human onClick={filterSpeciesHuman}/>
+              <Alien onClick={filterSpeciesAlien}/>
+              <Poopybutthole onClick={filterSpeciesPoopybutthole}/>
+              <Mythological onClick={filterSpeciesMythological}/>
+              <Animal onClick={filterSpeciesAnimal}/>
+              <Disease onClick={filterSpeciesDisease}/>
+              <Robot onClick={filterSpeciesRobot}/>
+              <Cronenberg onClick={filterSpeciesCronenberg}/>
+              <Humanoide onClick={filterSpeciesHumanoid}/>
+              <Unknown onClick={filterSpeciesUnknown}/>
             </AccordionItem>
             <AccordionItem  key="3" aria-label="Accordion 3" title={<span style={{ color: 'white' }}>Gender</span>}>
-              <Female/>
-              <Male/>
-              <Genderless/>
-              <UnknownGender/>
+              <Female onClick={filterGenderFemale}/>
+              <Male onClick={filterGenderMale}/>
+              <Genderless onClick={filterGenderGenderless}/>
+              <UnknownGender onClick={filterGenderUnknown}/>
             </AccordionItem>
           </Accordion>
         </div>

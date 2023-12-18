@@ -1,5 +1,6 @@
 import AppRouter from './AppRouter/AppRouter';
 import {NextUIProvider} from "@nextui-org/react";
+import { FilterProvider } from './context/FilterContext';
 import './App.css';
 
 
@@ -7,7 +8,9 @@ function App() {
 
   return (
     <NextUIProvider>
-      <AppRouter/>
+      <FilterProvider>
+        <AppRouter/>
+      </FilterProvider>
     </NextUIProvider>
   );
 }
