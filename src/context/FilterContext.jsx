@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useEffect } from "react";
 
 export const FilterContext = createContext();
 
@@ -30,30 +30,36 @@ export const FilterProvider = ({ children }) => {
   };
 
   const [filters, setFilters] = useState(initialFilters);
-  const [disablePagination, setDisablePagination] = useState(false)
+  const [disablePagination, setDisablePagination] = useState(false);
+  const [valueInput, setValueInput] = useState('');
 
   const clearFilters = () => {
     setFilters(initialFilters);
-    setDisablePagination(false)
+    setDisablePagination(false);
+    setValueInput('');
   };
 
   const ScrollToTopButton = () => {
     window.scrollTo({
       top: 0,
-      behavior: 'smooth', // Esto añade un desplazamiento suave
+      behavior: 'smooth',
     });
   };
 
+  useEffect(() => {
+  }, [valueInput]);
 
   return (
     <FilterContext.Provider
       value={{
         filters,
         setFilters,
-        disablePagination, 
+        disablePagination,
         setDisablePagination,
-        clearFilters, 
-        ScrollToTopButton 
+        valueInput,
+        setValueInput,
+        clearFilters,
+        ScrollToTopButton,
       }}
     >
       {children}

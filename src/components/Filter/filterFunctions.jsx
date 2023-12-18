@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { FilterContext } from "../../context/FilterContext";
 
+
 const FilterFunctions = () => {
   const { setFilters } = useContext(FilterContext);
 
@@ -264,6 +265,7 @@ const FilterFunctions = () => {
       },
     }));
   };
+
 
   return {
     filterStatusAlive,
