@@ -1,12 +1,11 @@
+import { useContext } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronLeft, faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import { FilterContext } from "../../context/FilterContext";
-import { useContext } from "react";
 import "./_paginacion.scss";
 
-export const Paginacion = ({ currentPage, onPageChange }) => {
-  
-  const { disablePagination, ScrollToTopButton  } = useContext(FilterContext);
+const Paginacion = ({ currentPage, onPageChange }) => {
+  const { disablePagination, ScrollToTopButton } = useContext(FilterContext);
 
   const handlePrevClick = () => {
     if (!disablePagination && currentPage > 1) {
@@ -24,20 +23,22 @@ export const Paginacion = ({ currentPage, onPageChange }) => {
 
   return (
     <div className="contenedorPaginacion">
-      {!disablePagination ? (
+      {!disablePagination && (
         <div className="contenedorCirculos">
           <div className="circuloPrev" onClick={handlePrevClick}>
-            <span> <FontAwesomeIcon icon={faChevronLeft} /> </span>
+            <span>
+              <FontAwesomeIcon icon={faChevronLeft} />
+            </span>
           </div>
           <div className="circuloNum">
             <span>{currentPage}</span>
           </div>
           <div className="circuloNext" onClick={handleNextClick}>
-            <span> <FontAwesomeIcon icon={faChevronRight} /> </span>
+            <span>
+              <FontAwesomeIcon icon={faChevronRight} />
+            </span>
           </div>
         </div>
-      ) : (
-        <div></div>
       )}
     </div>
   );
