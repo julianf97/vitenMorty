@@ -3,7 +3,7 @@ import PropTypes from "prop-types"; // Importa PropTypes
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronLeft, faChevronRight } from "@fortawesome/free-solid-svg-icons";
-import { FilterContext } from "../../context/FilterContext";
+import { FilterContext } from "../../../context/FilterContext"
 import "./_paginacion.scss";
 
 const Paginacion = ({ currentPage, onPageChange }) => {
