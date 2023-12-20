@@ -1,10 +1,12 @@
 import "./_presentacion.scss"
 import { Link } from "react-router-dom"
 import imagenPresentacion from "../../img/homePresentation.png"
+import Footer from "../Footer/Footer"
 
 const Presentacion = () => {
     
     return(
+        <>
         <div className='contenedorPresentacion'>
             <div className='ImagenPresentacion'>
                 <img src={imagenPresentacion} alt="imgPresentacion" />
@@ -24,6 +26,9 @@ const Presentacion = () => {
                 </div>
             </div>
         </div>
+        <Footer/>
+        </>
+       
     )
     
 }

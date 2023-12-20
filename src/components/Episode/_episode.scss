@@ -1,0 +1,287 @@
+// Mobile
+@media only screen and (max-width:600px){
+    .contenedorEpisode{
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        background-color: #333;
+        flex-direction: column;
+        .contenedorSeasonEpisode{
+            width: 100%;
+            height: 200px;
+            display: flex;
+            .primerTitulo{
+                width: 100%;
+                margin-top: 100px;
+                height: auto;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                h1{
+                    color: #fff;
+                    font-size: 1.8rem;
+                    font-weight: 600;
+                    letter-spacing: 1px;
+                }
+                .titulo{
+                    color: #bfde42;
+                    font-size: 1.4rem;
+                    font-weight: 600;
+                }
+            }
+        }
+        .contenedorAiredEpisode{
+            .segundoTitulo{
+                width: 100%;
+                height: auto !important;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                h3{
+                    color: #fff;
+                    font-size: 1.6rem;
+                    font-weight: 600;
+                    letter-spacing: 1px;
+                }
+                .subTitulo{
+                    color: #ffffff;
+                    font-size: 1.5rem;
+                    font-weight: 600;
+                }
+            }
+        }
+        .contenedorPickEpisode{
+            width: 100%;
+            height: auto;
+            display: flex;
+            justify-content: center;
+            h5{
+                color: #fff;
+                font-size: 1.4rem;
+                font-weight: 600;
+                margin-top: 8px;
+                height: 40px !important;
+            }
+        }
+        .contenedorSelect-mobile{
+            width: 100%;
+            height: 50%;
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+        .contenedorCharacters{
+            width: 100% ;
+            height: auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center ;
+            background-color: #333;
+            padding-bottom: 50px;
+        }
+    }
+    .select-desktop{
+        display: none !important;
+    }
+}
+
+@media only screen and (min-width:601px) and (max-width:1025px){
+    .contenedorEpisode{
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        background-color: #333;
+        flex-direction: column;
+        .contenedorSeasonEpisode{
+            width: 100%;
+            height: 200px;
+            display: flex;
+            .primerTitulo{
+                width: 100%;
+                margin-top: 100px;
+                height: auto;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                h1{
+                    color: #fff;
+                    font-size: 1.8rem;
+                    font-weight: 600;
+                    letter-spacing: 1px;
+                }
+                .titulo{
+                    color: #bfde42;
+                    font-size: 2rem;
+                    font-weight: 600;
+                }
+            }
+        }
+        .contenedorAiredEpisode{
+            .segundoTitulo{
+                width: 100%;
+                height: auto !important;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                h3{
+                    color: #fff;
+                    font-size: 1.6rem;
+                    font-weight: 600;
+                    letter-spacing: 1px;
+                }
+                .subTitulo{
+                    color: #ffffff;
+                    font-size: 1.8rem;
+                    font-weight: 600;
+                }
+            }
+        }
+        .contenedorPickEpisode{
+            width: 100%;
+            height: auto;
+            display: flex;
+            justify-content: center;
+            h5{
+                color: #fff;
+                font-size: 1.4rem;
+                font-weight: 600;
+                margin-top: 8px;
+                height: 40px !important;
+            }
+        }
+        .contenedorSelect-mobile{
+            width: 100%;
+            height: 50%;
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+        .contenedorCharacters{
+            width: 100% ;
+            height: auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center ;
+            background-color: #333;
+            padding-bottom: 50px;
+        }
+    }
+    .select-desktop{
+        display: none !important;
+    }
+}
+
+// Desktop
+@media only screen and (min-width:1026px){
+    .contenedorEpisode{
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        background-color: #333;
+        flex-direction: column;
+        .contenedorSeasonEpisode{
+            width: 100%;
+            height: 200px;
+            display: flex;
+            .primerTitulo{
+                width: 100%;
+                margin-top: 100px;
+                height: auto;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                h1{
+                    color: #fff;
+                    font-size: 2.5rem;
+                    font-weight: 600;
+                    letter-spacing: 1px;
+                    margin-right: 10px;
+                }
+                .titulo{
+                    color: #bfde42;
+                    font-size: 2rem;
+                    font-weight: 600;
+                    font-size: 2.5rem;
+                }
+            }
+        }
+        .contenedorAiredEpisode{
+            .segundoTitulo{
+                width: 100%;
+                height: auto !important;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                h3{
+                    color: #fff;
+                    font-size: 2.5rem;
+                    font-weight: 600;
+                    letter-spacing: 1px;
+                }
+                .subTitulo{
+                    color: #ffffff;
+                    font-size: 2.5rem;
+                    font-weight: 600;
+                    margin-left: 10px;
+                }
+            }
+        }
+        .contenedorPickEpisode{
+            width: 100%;
+            height: auto;
+            display: flex;
+            justify-content: center;
+            h5{
+                color: #fff;
+                font-size: 1.4rem;
+                font-weight: 600;
+                margin-top: 8px;
+                height: 40px !important;
+            }
+        }
+        .contenedorSelect-mobile{
+            width: 100%;
+            height: 50%;
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+            display: none !important;
+        }
+        .contenedorCharacters{
+            width: 100% ;
+            height: auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center ;
+            background-color: #333;
+            padding-bottom: 50px;
+        }
+    }
+}
+
+
+.myCustomSelect {
+    display: flex;
+    padding: 0px !important;
+    div{
+        margin: 0px !important;
+    }
+    label {
+      margin-left: 10px;
+      color: #fff !important;
+    }
+    span{
+        color: #fff !important;
+        margin-left: 10px;
+    }
+}
+
+
+.myCustomSelectSelection{
+    margin: 0px !important;
+    padding: 0px !important;
+    height: 100% !important;
+}

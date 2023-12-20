@@ -6,6 +6,7 @@ export const content = [
   // ...
   "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}",
 ];
+
 export const theme = {
   extend: {
     colors: {
@@ -22,9 +23,10 @@ export const theme = {
         700: "#004493",
         800: "#002e62",
         900: "#001731",
-      }
-    }
+      },
+    },
   },
 };
+
 export const darkMode = "class";
 export const plugins = [nextui()];

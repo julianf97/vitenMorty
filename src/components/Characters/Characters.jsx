@@ -7,12 +7,14 @@ import { FilterContext } from "../../context/FilterContext";
 import { useRickAndMortyCharacters } from "../../hooks/useRickAndMortyCharacters.js";
 import Paginacion from "../Paginacion/Paginacion.jsx";
 import NotFoundPage from '../NotFoundPage/NotFoundPage.jsx';
+import Footer from "../Footer/Footer.jsx"
 
 export default function Characters() {
   const [currentPage, setCurrentPage] = useState(1);
   const { informacion, loading, error } = useFetch(currentPage);
   const { filters, setDisablePagination, disablePagination, valueInput, setValueInput } = useContext(FilterContext);
   const { characters } = useRickAndMortyCharacters();
+  const [characterToSearch, setCharacterToSearch] = useState('');
 
   const apiResults = informacion?.results || [];
 
@@ -98,6 +100,7 @@ export default function Characters() {
   }, [apiResults, characters, filters, valueInput]);
 
   return (
+    <>
     <div className='contenedorPrincipalCharacters'>
       <div className='contenedorSearch'>
         <div className='contenedorInternoSearch'>
@@ -146,5 +149,7 @@ export default function Characters() {
       </div>
       {disablePagination ? <></> : <Paginacion currentPage={currentPage} onPageChange={handlePageChange} />}
     </div>
+    <Footer/>
+    </>
   );
 }
