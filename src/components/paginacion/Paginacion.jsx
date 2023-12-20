@@ -4,7 +4,7 @@ import { FilterContext } from "../../context/FilterContext";
 import { useContext } from "react";
 import "./_paginacion.scss";
 
-const Paginacion = ({ currentPage, onPageChange }) => {
+export const Paginacion = ({ currentPage, onPageChange }) => {
   
   const { disablePagination, ScrollToTopButton  } = useContext(FilterContext);
 
