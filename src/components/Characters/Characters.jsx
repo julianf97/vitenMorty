@@ -5,7 +5,7 @@ import CharacterCard from "../Cards/CaracterCard/CharacterCard";
 import { useFetch } from "../../hooks/useFetch";
 import { FilterContext } from "../../context/FilterContext";
 import { useRickAndMortyCharacters } from "../../hooks/useRickAndMortyCharacters.js";
-import Paginacion from '../Paginacion/Paginacion';
+import Paginacion from '../Paginacion/Paginacion.jsx';
 import NotFoundPage from '../NotFoundPage/NotFoundPage.jsx';
 import Footer from "../Footer/Footer.jsx"
 
@@ -15,7 +15,7 @@ export default function Characters() {
   const { filters, setDisablePagination, disablePagination, valueInput, setValueInput } = useContext(FilterContext);
   const { characters } = useRickAndMortyCharacters();
   const [characterToSearch, setCharacterToSearch] = useState('');
-  
+
 
   const apiResults = informacion?.results || [];
 
