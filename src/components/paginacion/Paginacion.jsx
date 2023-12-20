@@ -1,4 +1,6 @@
 import { useContext } from "react";
+import PropTypes from "prop-types"; // Importa PropTypes
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronLeft, faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import { FilterContext } from "../../context/FilterContext";
@@ -42,6 +44,12 @@ const Paginacion = ({ currentPage, onPageChange }) => {
       )}
     </div>
   );
+};
+
+// Agrega la validación de PropTypes
+Paginacion.propTypes = {
+  currentPage: PropTypes.number.isRequired, // Cambia el tipo según sea necesario
+  onPageChange: PropTypes.func.isRequired,
 };
 
 export default Paginacion;
