@@ -5,7 +5,7 @@ import CharacterCard from "../Cards/CaracterCard/CharacterCard";
 import { useFetch } from "../../hooks/useFetch";
 import { FilterContext } from "../../context/FilterContext";
 import { useRickAndMortyCharacters } from "../../hooks/useRickAndMortyCharacters.js";
-import { Paginacion } from '../Paginacion/Paginacion.jsx';
+import Paginacion from '../Paginacion/Paginacion';
 import NotFoundPage from '../NotFoundPage/NotFoundPage.jsx';
 import Footer from "../Footer/Footer.jsx"
 
