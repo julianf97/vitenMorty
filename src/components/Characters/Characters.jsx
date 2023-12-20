@@ -15,6 +15,7 @@ export default function Characters() {
   const { filters, setDisablePagination, disablePagination, valueInput, setValueInput } = useContext(FilterContext);
   const { characters } = useRickAndMortyCharacters();
   const [characterToSearch, setCharacterToSearch] = useState('');
+  
 
   const apiResults = informacion?.results || [];
 
