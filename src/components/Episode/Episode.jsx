@@ -5,7 +5,6 @@ import useRickAndMortyEpisodes from "../../hooks/useRickAndMortyEpisodes";
 import CharacterCard from "../Cards/CaracterCard/CharacterCard";
 import Footer from "../Footer/Footer";
 
-
 export default function Episode() {
   const { episodes } = useRickAndMortyEpisodes();
   const [titleEpisode, setTitleEpisode] = useState(null);
@@ -14,6 +13,15 @@ export default function Episode() {
   const [onAirEpisode, setOnAirEpisode] = useState(null);
   const [selectedEpisodeData, setSelectedEpisodeData] = useState(null);
   const [characters, setCharacters] = useState([]);
+  const [charactersPilot, setCharactersPilot] = useState([]);
+  const [selectUsed, setSelectUsed] = useState(false);
+
+  useEffect(() => {
+    if (!selectUsed && episodes.length > 0) {
+      const firstEpisodeData = episodes[0].episodes[0];
+      handleSelectChange(`${episodes[0].season}${firstEpisodeData.name}`);
+    }
+  }, [selectUsed, episodes]);
 
   useEffect(() => {
     if (selectedEpisodeData) {
@@ -51,92 +59,103 @@ export default function Episode() {
     const arrayEpisodes = selectedSeasonData.episodes;
     const selectedEpisodeData = arrayEpisodes.find((episode) => episode.name === selectedEpisode);
 
-    console.log(selectedEpisodeData.characters);
-
     const selectedDateData = selectedEpisodeData.air_date;
 
-    console.log(selectedDateData);
+    const selectFirstSeason = episodes[0];
+    const selectFirstEpisode = selectFirstSeason.episodes[0];
+    const selectPilotCharacters = selectFirstEpisode.characters;
 
     const idEpisode = selectedEpisodeData.id;
-
     const selectedNumberEpisode = idEpisode.toString();
-
-    console.log("Temporada seleccionada:", selectedSeason);
-    console.log("Numero de episodio seleccionado:", selectedNumberEpisode);
-    console.log("Episodio seleccionado:", selectedEpisode);
-    console.log("Fecha de creación:", selectedDateData);
 
     setTitleEpisode(selectedEpisode);
     setSelectedSeason(selectedSeason);
     setSelectedEpisode(selectedNumberEpisode);
     setOnAirEpisode(selectedDateData);
     setSelectedEpisodeData(selectedEpisodeData);
+    setCharactersPilot(selectPilotCharacters);
+    setSelectUsed(true);
   };
 
   return (
     <>
-    <div className="contenedorEpisode">
-      <div className="contenedorSeasonEpisode">
-        <div className="primerTitulo">
-          <h1>
-            {selectedSeason ? `${selectedSeason}` : "S01"}
-            {selectedEpisode ? `E${selectedEpisode}` : "E1"}
-          </h1>
-          <h3 className="titulo">{titleEpisode === null ? "Pilot" : titleEpisode}</h3>
+      <div className="contenedorEpisode">
+        <div className="contenedorSeasonEpisode">
+          <div className="primerTitulo">
+            <h1>
+              {selectedSeason ? `${selectedSeason}` : "S01"}
+              {selectedEpisode ? `E${selectedEpisode}` : "E1"}
+            </h1>
+            <h3 className="titulo">{titleEpisode === null ? "Pilot" : titleEpisode}</h3>
+          </div>
         </div>
-      </div>
-      <div className="contenedorAiredEpisode">
-        <div className="segundoTitulo">
-          <h3>Aired on: </h3>
-          <h5 className="subTitulo">{onAirEpisode ? `${onAirEpisode}` : "December 2, 2013"}</h5>
+        <div className="contenedorAiredEpisode">
+          <div className="segundoTitulo">
+            <h3>Aired on: </h3>
+            <h5 className="subTitulo">{onAirEpisode ? `${onAirEpisode}` : "December 2, 2013"}</h5>
+          </div>
         </div>
-      </div>
-      <div className="contenedorPickEpisode">
-        <h5>Pick Episode</h5>
-      </div>
-      <div className="contenedorSelect-mobile">
-        <Select label="Choose..." className="max-w-xs myCustomSelect" style={selectStyles}>
-          {episodes.map((season) => (
-            <SelectSection key={season.season} style={selectSectionStyles} title={`Season ${season.season}`}>
-              {season.episodes.map((episode) => (
-                <SelectItem onClick={() => handleSelectChange(`${season.season}${episode.name}`)} key={episode.id}>
-                  {episode.name}
-                </SelectItem>
+        <div className="contenedorPickEpisode">
+          <h5>Pick Episode</h5>
+        </div>
+        <div className="contenedorSelect-mobile">
+          <Select label="Choose..." className="max-w-xs myCustomSelect" style={selectStyles}>
+            {episodes.map((season) => (
+              <SelectSection key={season.season} style={selectSectionStyles} title={`Season ${season.season}`}>
+                {season.episodes.map((episode) => (
+                  <SelectItem onClick={() => handleSelectChange(`${season.season}${episode.name}`)} key={episode.id}>
+                    {episode.name}
+                  </SelectItem>
+                ))}
+              </SelectSection>
+            ))}
+          </Select>
+        </div>
+        <div className="contenedorDosSecciones">
+          <div className="select-desktop">
+            <h5>Pick Episode</h5>
+            <Select label="Choose..." className="max-w-xs myCustomSelect" style={selectStyles}>
+              {episodes.map((season) => (
+                <SelectSection key={season.season} style={selectSectionStyles} title={`Season ${season.season}`}>
+                  {season.episodes.map((episode) => (
+                    <SelectItem onClick={() => handleSelectChange(`${season.season}${episode.name}`)} key={episode.id}>
+                      {episode.name}
+                    </SelectItem>
+                  ))}
+                </SelectSection>
               ))}
-            </SelectSection>
-          ))}
-        </Select>
+            </Select>
+          </div>
+          <div className="contenedorPersonajes">
+            <div className="contenedorInternoPersonajes">
+              {selectUsed
+                ? characters.map((character) => (
+                    <CharacterCard
+                      key={character.id}
+                      gender={character.gender}
+                      name={character.name}
+                      status={character.status}
+                      location={character.location}
+                      episode={character.episode}
+                      image={character.image}
+                    />
+                  ))
+                : charactersPilot.map((character) => (
+                    <CharacterCard
+                      key={character.id}
+                      gender={character.gender}
+                      name={character.name}
+                      status={character.status}
+                      location={character.location}
+                      episode={character.episode}
+                      image={character.image}
+                    />
+                  ))}
+            </div>
+          </div>
+        </div>
+        <Footer />
       </div>
-      <div className='contenedorDosSecciones'>
-      <div className="select-desktop">
-        <Select label="Choose..." className="max-w-xs myCustomSelect" style={selectStyles}>
-          {episodes.map((season) => (
-            <SelectSection key={season.season} style={selectSectionStyles} title={`Season ${season.season}`}>
-              {season.episodes.map((episode) => (
-                <SelectItem onClick={() => handleSelectChange(`${season.season}${episode.name}`)} key={episode.id}>
-                  {episode.name}
-                </SelectItem>
-              ))}
-            </SelectSection>
-          ))}
-        </Select>
-      </div>
-      <div className="contenedorCharacters">
-        {characters.map((character) => (
-          <CharacterCard
-            key={character.id}
-            gender={character.gender}
-            name={character.name}
-            status={character.status}
-            location={character.location}
-            episode={character.episode}
-            image={character.image}
-          />
-        ))}
-      </div>
-      </div>
-      <Footer/>
-    </div>
     </>
   );
 }

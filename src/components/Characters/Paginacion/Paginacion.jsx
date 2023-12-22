@@ -1,6 +1,5 @@
 import { useContext } from "react";
-import PropTypes from "prop-types"; // Importa PropTypes
-
+import PropTypes from "prop-types"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronLeft, faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import { FilterContext } from "../../../context/FilterContext"
@@ -29,7 +28,7 @@ const Paginacion = ({ currentPage, onPageChange }) => {
         <div className="contenedorCirculos">
           <div className="circuloPrev" onClick={handlePrevClick}>
             <span>
-              <FontAwesomeIcon icon={faChevronLeft} />
+              <FontAwesomeIcon className="icon" icon={faChevronLeft} />
             </span>
           </div>
           <div className="circuloNum">

@@ -1,4 +1,5 @@
 import { useState, useContext, useEffect } from 'react';
+import { Link } from 'react-router-dom'; // Importa Link
 import "./_characters.scss";
 import Filter from "../Filter/Filter";
 import CharacterCard from "../Cards/CaracterCard/CharacterCard";
@@ -15,8 +16,6 @@ export default function Characters() {
   const { filters, setDisablePagination, disablePagination, valueInput, setValueInput } = useContext(FilterContext);
   const { characters } = useRickAndMortyCharacters();
   const [setCharacterToSearch] = useState('');
-
-
   const apiResults = informacion?.results || [];
 
   useEffect(() => {
@@ -132,15 +131,16 @@ export default function Characters() {
             {error && <p>Error: {error}</p>}
             {filteredCharacters && filteredCharacters.length > 0 ? (
               filteredCharacters.map((character) => (
-                <CharacterCard
-                  key={character.id}
-                  gender={character.gender}
-                  name={character.name}
-                  status={character.status}
-                  location={character.location}
-                  episode={character.episode}
-                  image={character.image}
-                />
+                <Link to={`/characters/${character.id}`} key={character.id}>
+                  <CharacterCard
+                    gender={character.gender}
+                    name={character.name}
+                    status={character.status}
+                    location={character.location}
+                    episode={character.episode}
+                    image={character.image}
+                  />
+                </Link>
               ))
             ) : (
               <NotFoundPage />

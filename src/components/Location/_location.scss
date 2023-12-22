@@ -324,3 +324,30 @@
     padding: 0px !important;
     height: 100% !important;
 }
+
+
+.segundoTitulo{
+    .subTitulo{
+        color: #bfde42 !important;
+    }
+}
+
+.tercerTitulo{
+    width: 100%;
+    height: auto !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    h3{
+        color: #fff;
+        font-size: 2rem;
+        font-weight: 600;
+        letter-spacing: 1px;
+    }
+    .subTitulo{
+        color: #bfde42 !important;
+        font-size: 2rem;
+        font-weight: 600;
+        margin-left: 10px;
+    }
+}
