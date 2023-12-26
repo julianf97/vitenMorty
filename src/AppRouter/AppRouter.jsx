@@ -16,7 +16,7 @@ const AppRouter = () => {
         <Route path="/characters/:id" element={<CharacterPage />} />
         <Route path="/episode" element={<Episode />} />
         <Route path="/location" element={<Location />} />
-        <Route path="/*" element={<Navigate to="/"/>} />
+        <Route path="/*" element={<Navigate to="/" replace/>} />
       </Routes>
     </BrowserRouter>
   );
