@@ -1,10 +1,13 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import RootApp from './App';
-import './index.css'
+// Archivo: index.js
+import React from 'react';
+import ReactDOM from 'react-dom';
+import RootApp from './App.jsx';
+import './index.css';
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+// eslint-disable-next-line react/no-deprecated
+ReactDOM.render(
   <React.StrictMode>
     <RootApp />
   </React.StrictMode>,
+  document.getElementById('root')
 );
