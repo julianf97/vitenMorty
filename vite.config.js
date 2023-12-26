@@ -8,6 +8,14 @@ export default defineConfig({
     hmr: {
       overlay: false,
     },
+    // Configuración para manejar correctamente las rutas al recargar la página
+    proxy: {
+      '/api': {
+        target: 'http://localhost:5000', // Ajusta esto según tu configuración del servidor de backend
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api/, ''),
+      },
+    },
     historyApiFallback: true,
   },
 });
