@@ -11,12 +11,12 @@ const AppRouter = () => {
     <BrowserRouter>
       <Navbar />
       <Routes>
-      <Route path="/*" element={<Navigate to="/inicio/" replace />} />
-        <Route path='/' element={<Presentacion />} />
-        <Route path='/characters' element={<Characters />} />
-        <Route path='/characters/:id' element={<CharacterPage />} />
-        <Route path='/Episode' element={<Episode />} />
-        <Route path='/Location' element={<Location />} />
+        <Route path="/" element={<Presentacion />} />
+        <Route path="/characters" element={<Characters />} />
+        <Route path="/characters/:id" element={<CharacterPage />} />
+        <Route path="/episode" element={<Episode />} />
+        <Route path="/location" element={<Location />} />
+        <Route path="/*" element={<Navigate to="/" />} />
       </Routes>
     </BrowserRouter>
   );
