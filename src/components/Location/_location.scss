@@ -235,6 +235,25 @@
                     margin-left: 10px;
                 }
             }
+            .tercerTitulo{
+                width: 100%;
+                height: auto !important;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                h3{
+                    color: #fff;
+                    font-size: 2.5rem;
+                    font-weight: 600;
+                    letter-spacing: 1px;
+                }
+                .subTitulo{
+                    color: #ffffff;
+                    font-size: 2.5rem;
+                    font-weight: 600;
+                    margin-left: 10px;
+                }
+            }
         }
         .contenedorPickEpisode{
             width: 100%;

@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 const useRickAndMortyCharacters = () => {
   const [characters, setCharacters] = useState([]);
@@ -35,7 +36,15 @@ const useRickAndMortyCharacters = () => {
     fetchAllCharacters();
   }, []);
 
-  return { characters, loading, error };
+  const getRandomCharacter = () => {
+    const randomIndex = Math.floor(Math.random() * characters.length);
+
+    console.log(randomIndex)
+
+    return characters[randomIndex];
+  };
+
+  return { characters, loading, error, getRandomCharacter };
 };
 
 export { useRickAndMortyCharacters };

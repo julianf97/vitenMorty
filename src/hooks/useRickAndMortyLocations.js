@@ -11,8 +11,7 @@ const useRickAndMortyLocations = () => {
       try {
         let allLocations = [];
         let page = 1;
-        let data;  // Declarar data aquí
-
+        let data; 
         do {
           const response = await fetch(`https://rickandmortyapi.com/api/location?page=${page}`);
           

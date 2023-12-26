@@ -4,6 +4,7 @@ import { Select, SelectItem, SelectSection } from "@nextui-org/react";
 import useRickAndMortyEpisodes from "../../hooks/useRickAndMortyEpisodes";
 import CharacterCard from "../Cards/CaracterCard/CharacterCard";
 import Footer from "../Footer/Footer";
+import { Link } from "react-router-dom";
 
 export default function Episode() {
   const { episodes } = useRickAndMortyEpisodes();
@@ -130,26 +131,28 @@ export default function Episode() {
             <div className="contenedorInternoPersonajes">
               {selectUsed
                 ? characters.map((character) => (
+                  <Link to={`/characters/${character.id}`} key={character.id}>
                     <CharacterCard
-                      key={character.id}
                       gender={character.gender}
                       name={character.name}
                       status={character.status}
                       location={character.location}
                       episode={character.episode}
                       image={character.image}
-                    />
+                  />
+                </Link>
                   ))
                 : charactersPilot.map((character) => (
+                  <Link to={`/characters/${character.id}`} key={character.id}>
                     <CharacterCard
-                      key={character.id}
                       gender={character.gender}
                       name={character.name}
                       status={character.status}
                       location={character.location}
                       episode={character.episode}
                       image={character.image}
-                    />
+                  />
+                </Link>
                   ))}
             </div>
           </div>

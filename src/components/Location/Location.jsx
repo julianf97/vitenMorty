@@ -4,9 +4,11 @@ import { Select, SelectItem } from "@nextui-org/react";
 import CharacterCard from "../Cards/CaracterCard/CharacterCard";
 import Footer from "../Footer/Footer";
 import useRickAndMortyLocations from "../../hooks/useRickAndMortyLocations";
+import { Link } from "react-router-dom";
 
 function Location() {
   const { locations, firstLocations } = useRickAndMortyLocations();
+  const [loading, setLoading] = useState(true)
   const [selectedLocation, setSelectedLocation] = useState(null);
   const [selectedType, setSelectedType] = useState(null);
   const [selectedLocationData, setSelectedLocationData] = useState(null);
@@ -39,6 +41,9 @@ function Location() {
         } catch (error) {
           console.error('Error fetching characters:', error);
         }
+        finally{
+          setLoading(false);
+        }
       }
     };
 
@@ -61,6 +66,8 @@ function Location() {
           setResidentsFirstLocations(validResidentsFirstLocations);
         } catch (error) {
           console.error('Error fetching first locations characters:', error);
+        } finally {
+          setLoading(false);
         }
       }
     };
@@ -89,6 +96,8 @@ function Location() {
     } catch (error) {
       console.error('Error fetching character details:', error);
       return null;
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -120,6 +129,7 @@ function Location() {
   return (
     <>
       <div className="contenedorEpisode">
+        {loading && <p>Cargando...</p>}
         <div className="contenedorSeasonEpisode">
           <div className="primerTitulo">
             <h1>{selectedLocation ? `${selectedLocation}` : "Earth (C-137)"}</h1>
@@ -161,15 +171,16 @@ function Location() {
           <div className="contenedorPersonajes">
             <div className="contenedorInternoPersonajes">
               {residentsToDisplay && residentsToDisplay.map((character) => (
-                <CharacterCard
-                  key={character.id}
-                  gender={character.gender}
-                  name={character.name}
-                  status={character.status}
-                  location={character.location} 
-                  episode={character.episode} 
-                  image={character.image}
-                />
+                <Link to={`/characters/${character.id}`} key={character.id}>
+                  <CharacterCard
+                    gender={character.gender}
+                    name={character.name}
+                    status={character.status}
+                    location={character.location}
+                    episode={character.episode}
+                    image={character.image}
+                  />
+              </Link>
               ))}
             </div>
           </div>
