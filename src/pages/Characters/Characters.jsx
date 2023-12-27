@@ -9,6 +9,7 @@ import { useRickAndMortyCharacters } from "../../hooks/useRickAndMortyCharacters
 import Paginacion from './Paginacion/Paginacion.jsx';
 import NotFoundPage from '../../components/NotFoundPage/NotFoundPage.jsx';
 import Footer from "../../components/Footer/Footer.jsx"
+import {CircularProgress} from "@nextui-org/react";
 
 export default function Characters() {
   const [currentPage, setCurrentPage] = useState(1);
@@ -127,7 +128,9 @@ export default function Characters() {
         <Filter />
         <div className='contenedorPersonajes'>
           <div className='contenedorInternoPersonajes'>
-            {loading && <p>Cargando...</p>}
+            {
+            loading && <CircularProgress style={{marginLeft:"350px", marginTop:"150px"}} size="lg" color="success" aria-label="Loading..."/>
+            }
             {error && <p>Error: {error}</p>}
             {filteredCharacters && filteredCharacters.length > 0 ? (
               filteredCharacters.map((character) => (
@@ -143,7 +146,7 @@ export default function Characters() {
                 </Link>
               ))
             ) : (
-              <NotFoundPage />
+              loading ? <div/> : <NotFoundPage  />
             )}
           </div>
         </div>

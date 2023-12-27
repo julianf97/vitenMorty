@@ -4,10 +4,11 @@ import { Select, SelectItem, SelectSection } from "@nextui-org/react";
 import useRickAndMortyEpisodes from "../../hooks/useRickAndMortyEpisodes";
 import CharacterCard from "../../components/Cards/CaracterCard/CharacterCard";
 import Footer from "../../components/Footer/Footer";
+import {CircularProgress} from "@nextui-org/react";
 import { Link } from "react-router-dom";
 
 export default function Episode() {
-  const { episodes } = useRickAndMortyEpisodes();
+  const { episodes, loading, error } = useRickAndMortyEpisodes();
   const [titleEpisode, setTitleEpisode] = useState(null);
   const [selectedSeason, setSelectedSeason] = useState(null);
   const [selectedEpisode, setSelectedEpisode] = useState(null);
@@ -129,6 +130,10 @@ export default function Episode() {
           </div>
           <div className="contenedorPersonajes">
             <div className="contenedorInternoPersonajes">
+              {
+                loading && <CircularProgress style={{marginLeft:"350px", marginTop:"150px"}} size="lg" color="success" aria-label="Loading..."/>
+              }     
+              {error && <p>Error: {error.message}</p>}
               {selectUsed
                 ? characters.map((character) => (
                   <Link to={`/characters/${character.id}`} key={character.id}>

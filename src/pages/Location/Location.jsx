@@ -5,9 +5,10 @@ import CharacterCard from '../../components/Cards/CaracterCard/CharacterCard.jsx
 import Footer from "../../components/Footer/Footer.jsx"
 import useRickAndMortyLocations from "../../hooks/useRickAndMortyLocations";
 import { Link } from "react-router-dom";
+import {CircularProgress} from "@nextui-org/react";
 
 function Location() {
-  const { locations, firstLocations } = useRickAndMortyLocations();
+  const { locations, firstLocations} = useRickAndMortyLocations();
   const [loading, setLoading] = useState(true)
   const [selectedLocation, setSelectedLocation] = useState(null);
   const [selectedType, setSelectedType] = useState(null);
@@ -129,7 +130,6 @@ function Location() {
   return (
     <>
       <div className="contenedorEpisode">
-        {loading && <p>Cargando...</p>}
         <div className="contenedorSeasonEpisode">
           <div className="primerTitulo">
             <h1>{selectedLocation ? `${selectedLocation}` : "Earth (C-137)"}</h1>
@@ -169,6 +169,9 @@ function Location() {
             </Select>
           </div>
           <div className="contenedorPersonajes">
+            {
+              loading && <CircularProgress style={{marginLeft:"350px", marginTop:"150px"}} size="lg" color="success" aria-label="Loading..."/>
+            }
             <div className="contenedorInternoPersonajes">
               {residentsToDisplay && residentsToDisplay.map((character) => (
                 <Link to={`/characters/${character.id}`} key={character.id}>
