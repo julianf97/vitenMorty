@@ -1,7 +1,7 @@
 import "./_presentacion.scss";
 import { Link, useNavigate } from "react-router-dom";
 import imagenPresentacion from "../../img/homePresentation.png";
-import Footer from "../Footer/Footer";
+import Footer from "../../components/Footer/Footer.jsx"
 import { useRickAndMortyCharacters } from "../../hooks/useRickAndMortyCharacters";
 
 const Presentacion = () => {

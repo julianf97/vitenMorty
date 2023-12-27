@@ -19,7 +19,6 @@ import UnknownGender from "./gender/Unknown";
 import { useContext } from "react";
 import { FilterContext } from "../../context/FilterContext";
 import Humanoide from "./species/Humanoide";
-import { useEffect } from "react";
 
 export default function Filter() {
   const { filterStatusAlive, 

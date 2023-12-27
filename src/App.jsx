@@ -1,10 +1,10 @@
 import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar";
-import Presentacion from "./components/Presentacion";
-import Characters from "./components/Characters/Characters";
-import Episode from "./components/Episode/Episode";
-import Location from "./components/Location/Location";
-import CharacterPage from "./components/CharacterPage/CharacterPage";
+import Presentacion from "./pages/Presentacion";
+import Characters from "./pages/Characters/Characters";
+import Episode from "./pages/Episode/Episode";
+import Location from "./pages/Location/Location";
+import CharacterPage from "./pages/CharacterPage/CharacterPage";
 import { NextUIProvider } from "@nextui-org/react";
 import { FilterProvider } from './context/FilterContext';
 import './App.css';

@@ -1,8 +1,8 @@
 import "./_location.scss";
 import { useState, useEffect, useMemo } from "react";
 import { Select, SelectItem } from "@nextui-org/react";
-import CharacterCard from "../Cards/CaracterCard/CharacterCard";
-import Footer from "../Footer/Footer";
+import CharacterCard from '../../components/Cards/CaracterCard/CharacterCard.jsx';
+import Footer from "../../components/Footer/Footer.jsx"
 import useRickAndMortyLocations from "../../hooks/useRickAndMortyLocations";
 import { Link } from "react-router-dom";
 

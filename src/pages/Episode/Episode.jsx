@@ -2,8 +2,8 @@ import "./_episode.scss";
 import { useState, useEffect } from "react";
 import { Select, SelectItem, SelectSection } from "@nextui-org/react";
 import useRickAndMortyEpisodes from "../../hooks/useRickAndMortyEpisodes";
-import CharacterCard from "../Cards/CaracterCard/CharacterCard";
-import Footer from "../Footer/Footer";
+import CharacterCard from "../../components/Cards/CaracterCard/CharacterCard";
+import Footer from "../../components/Footer/Footer";
 import { Link } from "react-router-dom";
 
 export default function Episode() {

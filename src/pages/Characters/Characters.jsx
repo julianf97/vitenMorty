@@ -1,14 +1,14 @@
 import { useState, useContext, useEffect } from 'react';
-import { Link } from 'react-router-dom'; // Importa Link
+import { Link } from 'react-router-dom'; 
 import "./_characters.scss";
-import Filter from "../Filter/Filter";
-import CharacterCard from "../Cards/CaracterCard/CharacterCard";
+import Filter from '../../components/Filter/Filter.jsx';
+import CharacterCard from '../../components/Cards/CaracterCard/CharacterCard.jsx';
 import { useFetch } from "../../hooks/useFetch";
 import { FilterContext } from "../../context/FilterContext";
 import { useRickAndMortyCharacters } from "../../hooks/useRickAndMortyCharacters.js";
 import Paginacion from './Paginacion/Paginacion.jsx';
-import NotFoundPage from '../NotFoundPage/NotFoundPage.jsx';
-import Footer from "../Footer/Footer.jsx"
+import NotFoundPage from '../../components/NotFoundPage/NotFoundPage.jsx';
+import Footer from "../../components/Footer/Footer.jsx"
 
 export default function Characters() {
   const [currentPage, setCurrentPage] = useState(1);
