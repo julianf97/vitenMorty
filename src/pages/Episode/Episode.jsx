@@ -141,16 +141,17 @@ export default function Episode() {
                   style={{
                     marginLeft: "350px",
                     marginTop: "150px",
-                    '@media (max-width: 600px)': {
-                      marginLeft: "150px",
-                      marginTop: "150px",
-                    },
+                    ...(window.innerWidth <= 600 && {
+                      marginLeft: "170px",
+                      marginTop: "50px",
+                    }),
                   }}
                   size="lg"
                   color="success"
                   aria-label="Loading..."
                 />
               )}
+
               {error && <p>Error: {error.message}</p>}
               {selectUsed
                 ? characters.map((character) => (

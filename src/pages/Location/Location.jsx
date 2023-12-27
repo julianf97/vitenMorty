@@ -174,10 +174,10 @@ function Location() {
                 style={{
                   marginLeft: "350px",
                   marginTop: "150px",
-                  '@media (max-width: 600px)': {
-                    marginLeft: "150px",
-                    marginTop: "150px",
-                  },
+                  ...(window.innerWidth <= 600 && {
+                    marginLeft: "170px",
+                    marginTop: "50px",
+                  }),
                 }}
                 size="lg"
                 color="success"

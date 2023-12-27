@@ -133,16 +133,17 @@ export default function Characters() {
                   style={{
                     marginLeft: "350px",
                     marginTop: "150px",
-                    '@media (max-width: 600px)': {
-                      marginLeft: "150px",
-                      marginTop: "150px",
-                    },
+                    ...(window.innerWidth <= 600 && {
+                      marginLeft: "170px",
+                      marginTop: "50px",
+                    }),
                   }}
                   size="lg"
                   color="success"
                   aria-label="Loading..."
                 />
               )}
+
               {error && <p>Error: {error}</p>}
               {filteredCharacters && filteredCharacters.length > 0 ? (
                 filteredCharacters.map((character) => (
@@ -158,14 +159,14 @@ export default function Characters() {
                   </Link>
                 ))
               ) : (
-                loading ? <div/> : <NotFoundPage  />
+                loading ? <div /> : <NotFoundPage />
               )}
             </div>
           </div>
         </div>
         {disablePagination ? <></> : <Paginacion currentPage={currentPage} onPageChange={handlePageChange} />}
       </div>
-      <Footer/>
+      <Footer />
     </>
   );
 }
