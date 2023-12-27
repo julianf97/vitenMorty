@@ -1,5 +1,5 @@
 import { useState, useContext, useEffect } from 'react';
-import { Link } from 'react-router-dom'; 
+import { Link } from 'react-router-dom';
 import "./_characters.scss";
 import Filter from '../../components/Filter/Filter.jsx';
 import CharacterCard from '../../components/Cards/CaracterCard/CharacterCard.jsx';
@@ -8,8 +8,8 @@ import { FilterContext } from "../../context/FilterContext";
 import { useRickAndMortyCharacters } from "../../hooks/useRickAndMortyCharacters.js";
 import Paginacion from './Paginacion/Paginacion.jsx';
 import NotFoundPage from '../../components/NotFoundPage/NotFoundPage.jsx';
-import Footer from "../../components/Footer/Footer.jsx"
-import {CircularProgress} from "@nextui-org/react";
+import Footer from "../../components/Footer/Footer.jsx";
+import { CircularProgress } from "@nextui-org/react";
 
 export default function Characters() {
   const [currentPage, setCurrentPage] = useState(1);
@@ -102,58 +102,70 @@ export default function Characters() {
 
   return (
     <>
-    <div className='contenedorPrincipalCharacters'>
-      <div className='contenedorSearch'>
-        <div className='contenedorInternoSearch'>
-          <div className='contenedorTitulo'>
-            <h2>Characters</h2>
-          </div>
-          <form className="contenedorForm" onSubmit={handleSubmit}>
-            <div className='contenedorInput'>
-              <input
-                type='search'
-                onChange={handleInputChange}
-                value={valueInput}
-                name="search"
-                placeholder='Search for a character'
-              />
-              <button className='submitSearch' type='submit'>
-                Search
-              </button>
+      <div className='contenedorPrincipalCharacters'>
+        <div className='contenedorSearch'>
+          <div className='contenedorInternoSearch'>
+            <div className='contenedorTitulo'>
+              <h2>Characters</h2>
             </div>
-          </form>
-        </div>
-      </div>
-      <div className='contenedorDosSecciones'>
-        <Filter />
-        <div className='contenedorPersonajes'>
-          <div className='contenedorInternoPersonajes'>
-            {
-            loading && <CircularProgress style={{marginLeft:"350px", marginTop:"150px"}} size="lg" color="success" aria-label="Loading..."/>
-            }
-            {error && <p>Error: {error}</p>}
-            {filteredCharacters && filteredCharacters.length > 0 ? (
-              filteredCharacters.map((character) => (
-                <Link to={`/characters/${character.id}`} key={character.id}>
-                  <CharacterCard
-                    gender={character.gender}
-                    name={character.name}
-                    status={character.status}
-                    location={character.location}
-                    episode={character.episode}
-                    image={character.image}
-                  />
-                </Link>
-              ))
-            ) : (
-              loading ? <div/> : <NotFoundPage  />
-            )}
+            <form className="contenedorForm" onSubmit={handleSubmit}>
+              <div className='contenedorInput'>
+                <input
+                  type='search'
+                  onChange={handleInputChange}
+                  value={valueInput}
+                  name="search"
+                  placeholder='Search for a character'
+                />
+                <button className='submitSearch' type='submit'>
+                  Search
+                </button>
+              </div>
+            </form>
           </div>
         </div>
+        <div className='contenedorDosSecciones'>
+          <Filter />
+          <div className='contenedorPersonajes'>
+            <div className='contenedorInternoPersonajes'>
+              {loading && (
+                <CircularProgress
+                  style={{
+                    marginLeft: "350px",
+                    marginTop: "150px",
+                    '@media (max-width: 600px)': {
+                      marginLeft: "150px",
+                      marginTop: "150px",
+                    },
+                  }}
+                  size="lg"
+                  color="success"
+                  aria-label="Loading..."
+                />
+              )}
+              {error && <p>Error: {error}</p>}
+              {filteredCharacters && filteredCharacters.length > 0 ? (
+                filteredCharacters.map((character) => (
+                  <Link to={`/characters/${character.id}`} key={character.id}>
+                    <CharacterCard
+                      gender={character.gender}
+                      name={character.name}
+                      status={character.status}
+                      location={character.location}
+                      episode={character.episode}
+                      image={character.image}
+                    />
+                  </Link>
+                ))
+              ) : (
+                loading ? <div/> : <NotFoundPage  />
+              )}
+            </div>
+          </div>
+        </div>
+        {disablePagination ? <></> : <Paginacion currentPage={currentPage} onPageChange={handlePageChange} />}
       </div>
-      {disablePagination ? <></> : <Paginacion currentPage={currentPage} onPageChange={handlePageChange} />}
-    </div>
-    <Footer/>
+      <Footer/>
     </>
   );
 }

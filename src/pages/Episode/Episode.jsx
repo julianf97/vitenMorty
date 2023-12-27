@@ -4,7 +4,7 @@ import { Select, SelectItem, SelectSection } from "@nextui-org/react";
 import useRickAndMortyEpisodes from "../../hooks/useRickAndMortyEpisodes";
 import CharacterCard from "../../components/Cards/CaracterCard/CharacterCard";
 import Footer from "../../components/Footer/Footer";
-import {CircularProgress} from "@nextui-org/react";
+import { CircularProgress } from "@nextui-org/react";
 import { Link } from "react-router-dom";
 
 export default function Episode() {
@@ -105,7 +105,10 @@ export default function Episode() {
             {episodes.map((season) => (
               <SelectSection key={season.season} style={selectSectionStyles} title={`Season ${season.season}`}>
                 {season.episodes.map((episode) => (
-                  <SelectItem onClick={() => handleSelectChange(`${season.season}${episode.name}`)} key={episode.id}>
+                  <SelectItem
+                    onClick={() => handleSelectChange(`${season.season}${episode.name}`)}
+                    key={episode.id}
+                  >
                     {episode.name}
                   </SelectItem>
                 ))}
@@ -120,7 +123,10 @@ export default function Episode() {
               {episodes.map((season) => (
                 <SelectSection key={season.season} style={selectSectionStyles} title={`Season ${season.season}`}>
                   {season.episodes.map((episode) => (
-                    <SelectItem onClick={() => handleSelectChange(`${season.season}${episode.name}`)} key={episode.id}>
+                    <SelectItem
+                      onClick={() => handleSelectChange(`${season.season}${episode.name}`)}
+                      key={episode.id}
+                    >
                       {episode.name}
                     </SelectItem>
                   ))}
@@ -130,34 +136,46 @@ export default function Episode() {
           </div>
           <div className="contenedorPersonajes">
             <div className="contenedorInternoPersonajes">
-              {
-                loading && <CircularProgress style={{marginLeft:"350px", marginTop:"150px"}} size="lg" color="success" aria-label="Loading..."/>
-              }     
+              {loading && (
+                <CircularProgress
+                  style={{
+                    marginLeft: "350px",
+                    marginTop: "150px",
+                    '@media (max-width: 600px)': {
+                      marginLeft: "150px",
+                      marginTop: "150px",
+                    },
+                  }}
+                  size="lg"
+                  color="success"
+                  aria-label="Loading..."
+                />
+              )}
               {error && <p>Error: {error.message}</p>}
               {selectUsed
                 ? characters.map((character) => (
-                  <Link to={`/characters/${character.id}`} key={character.id}>
-                    <CharacterCard
-                      gender={character.gender}
-                      name={character.name}
-                      status={character.status}
-                      location={character.location}
-                      episode={character.episode}
-                      image={character.image}
-                  />
-                </Link>
+                    <Link to={`/characters/${character.id}`} key={character.id}>
+                      <CharacterCard
+                        gender={character.gender}
+                        name={character.name}
+                        status={character.status}
+                        location={character.location}
+                        episode={character.episode}
+                        image={character.image}
+                      />
+                    </Link>
                   ))
                 : charactersPilot.map((character) => (
-                  <Link to={`/characters/${character.id}`} key={character.id}>
-                    <CharacterCard
-                      gender={character.gender}
-                      name={character.name}
-                      status={character.status}
-                      location={character.location}
-                      episode={character.episode}
-                      image={character.image}
-                  />
-                </Link>
+                    <Link to={`/characters/${character.id}`} key={character.id}>
+                      <CharacterCard
+                        gender={character.gender}
+                        name={character.name}
+                        status={character.status}
+                        location={character.location}
+                        episode={character.episode}
+                        image={character.image}
+                      />
+                    </Link>
                   ))}
             </div>
           </div>

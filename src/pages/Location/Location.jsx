@@ -5,10 +5,10 @@ import CharacterCard from '../../components/Cards/CaracterCard/CharacterCard.jsx
 import Footer from "../../components/Footer/Footer.jsx"
 import useRickAndMortyLocations from "../../hooks/useRickAndMortyLocations";
 import { Link } from "react-router-dom";
-import {CircularProgress} from "@nextui-org/react";
+import { CircularProgress } from "@nextui-org/react";
 
 function Location() {
-  const { locations, firstLocations} = useRickAndMortyLocations();
+  const { locations, firstLocations } = useRickAndMortyLocations();
   const [loading, setLoading] = useState(true)
   const [selectedLocation, setSelectedLocation] = useState(null);
   const [selectedType, setSelectedType] = useState(null);
@@ -42,7 +42,7 @@ function Location() {
         } catch (error) {
           console.error('Error fetching characters:', error);
         }
-        finally{
+        finally {
           setLoading(false);
         }
       }
@@ -121,7 +121,7 @@ function Location() {
     );
 
     const validResidents = residentsData.filter(character => character !== null);
-    
+
     setResidents(validResidents);
     setSelectedLocationData(selectedLocationObject);
     setSelectUsed(true);
@@ -150,11 +150,11 @@ function Location() {
         </div>
         <div className="contenedorSelect-mobile">
           <Select label="Choose..." className="max-w-xs myCustomSelect" style={selectStyles}>
-              {locations && locations.map((location) => (
-                <SelectItem key={location.id} onClick={() => handleSelectChange(location.name)}>
-                  {location.name}
-                </SelectItem>
-              ))}
+            {locations && locations.map((location) => (
+              <SelectItem key={location.id} onClick={() => handleSelectChange(location.name)}>
+                {location.name}
+              </SelectItem>
+            ))}
           </Select>
         </div>
         <div className="contenedorDosSecciones">
@@ -169,9 +169,21 @@ function Location() {
             </Select>
           </div>
           <div className="contenedorPersonajes">
-            {
-              loading && <CircularProgress style={{marginLeft:"350px", marginTop:"150px"}} size="lg" color="success" aria-label="Loading..."/>
-            }
+            {loading && (
+              <CircularProgress
+                style={{
+                  marginLeft: "350px",
+                  marginTop: "150px",
+                  '@media (max-width: 600px)': {
+                    marginLeft: "150px",
+                    marginTop: "150px",
+                  },
+                }}
+                size="lg"
+                color="success"
+                aria-label="Loading..."
+              />
+            )}
             <div className="contenedorInternoPersonajes">
               {residentsToDisplay && residentsToDisplay.map((character) => (
                 <Link to={`/characters/${character.id}`} key={character.id}>
@@ -183,7 +195,7 @@ function Location() {
                     episode={character.episode}
                     image={character.image}
                   />
-              </Link>
+                </Link>
               ))}
             </div>
           </div>
