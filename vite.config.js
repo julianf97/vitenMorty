@@ -1,21 +1,23 @@
 import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react-swc';
+import react from '@vitejs/plugin-react';
 
-// https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
   server: {
     hmr: {
       overlay: false,
     },
-    // Configuración para manejar correctamente las rutas al recargar la página
     proxy: {
       '/api': {
-        target: 'http://localhost:5173', // Ajusta esto según tu configuración del servidor de backend
-        changeOrigin: true,
+        target: 'http://localhost:5173',
         rewrite: (path) => path.replace(/^\/api/, ''),
       },
     },
-    historyApiFallback: true,
+    historyApiFallback: {
+      rewrites: [
+        { from: /^\/api/, to: '/api' }, // Redirige las solicitudes a /api al servidor proxy
+        { from: /./, to: '/' }, // Redirige cualquier otra solicitud a la raíz del sitio
+      ],
+    },
   },
 });
